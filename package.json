@@ -1,0 +1,22 @@
+{
+  "name": "dependenttypepredicates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node dist/main.js",
+    "build": "tsc",
+    "watch": "tsc-watch --onsuccess \"node dist/main.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@types/node": "^20.10.1",
+    "tsc-watch": "^6.0.4"
+  }
+}

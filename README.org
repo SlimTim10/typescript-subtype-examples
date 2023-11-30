@@ -1,0 +1,14 @@
+* TypeScript Subtype Examples
+
+First, install the modules:
+
+~npm install~
+
+To compile and run once:
+
+~npm start~
+
+To compile and run with auto-reloading:
+
+~npm run watch~
+
