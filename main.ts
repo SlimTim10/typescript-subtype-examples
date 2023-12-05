@@ -20,12 +20,12 @@ const positiveNumberExample = () => {
   type A = number
   type PositiveNumber = A & { readonly __type: unique symbol }
 
-  const B = (x: A): x is PositiveNumber => {
+  const isPositiveNumber = (x: A): x is PositiveNumber => {
     return x >= 1
   }
-  
+
   const x: A = 2
-  if (B(x)) {
+  if (isPositiveNumber(x)) {
     const y: PositiveNumber = x
     console.log('y:', y)
   }
