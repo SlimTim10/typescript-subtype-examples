@@ -1,13 +1,14 @@
-// Generic subtype template.
+// General subtype template.
 const subtypeTemplate = () => {
-  type A = {} // some type
+  type A = {} // some specific type
   type B = A & { readonly __type: unique symbol }
 
   const isB = (x: A): x is B => {
-    return true // boolean value
+    // return a boolean value
+    return true
   }
   
-  const x: A = {} // value of type A
+  const x: A = {} // some value of type A
   if (isB(x)) {
     const y: B = x
     console.log('y:', y)
@@ -15,7 +16,7 @@ const subtypeTemplate = () => {
 }
 // subtypeTemplate()
 
-// This is the best basic example I have, written in a generic way (A and B).
+// This is the best basic example I have.
 const positiveNumberExample = () => {
   type A = number
   type PositiveNumber = A & { readonly __type: unique symbol }
