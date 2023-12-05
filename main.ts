@@ -1,15 +1,15 @@
 // Generic subtype template.
 const subtypeTemplate = () => {
   type A = {} // some type
-  type Subtype = A & { readonly __type: unique symbol }
+  type B = A & { readonly __type: unique symbol }
 
-  const B = (x: A): x is Subtype => {
+  const isB = (x: A): x is B => {
     return true // boolean value
   }
   
   const x: A = {} // value of type A
-  if (B(x)) {
-    const y: Subtype = x
+  if (isB(x)) {
+    const y: B = x
     console.log('y:', y)
   }
 }
@@ -23,6 +23,7 @@ const positiveNumberExample = () => {
   const B = (x: A): x is PositiveNumber => {
     return x >= 1
   }
+  
   const x: A = 2
   if (B(x)) {
     const y: PositiveNumber = x
