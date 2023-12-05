@@ -58,34 +58,36 @@ const unconstructableType = () => {
 const nonNegativeIntegerExample = () => {
   type NonNegativeInteger = number & { readonly __type: unique symbol }
 
-  const isNonNegativeInteger = (x: number): x is NonNegativeInteger => !(x < 0) && Math.floor(x) === x
+  const isNonNegativeInteger = (x: number): x is NonNegativeInteger => {
+    return !(x < 0) && Math.floor(x) === x
+  }
 
-  const negate = (n: NonNegativeInteger): number => {
-    return -n
+  const betterRepeat = (s: string, n: NonNegativeInteger): string => {
+    return s.repeat(n)
   }
 
   // success
   const ex1: number = 3
   if (isNonNegativeInteger(ex1)) {
-    console.log(negate(ex1))
+    console.log(betterRepeat('hello', ex1))
   }
 
   // failure
   const ex2: number = 3.1
   if (isNonNegativeInteger(ex2)) {
-    console.log(negate(ex2))
+    console.log(betterRepeat('hello', ex2))
   }
 
   // failure
   const ex3: number = -3
   if (isNonNegativeInteger(ex3)) {
-    console.log(negate(ex3))
+    console.log(betterRepeat('hello', ex3))
   }
 
   // failure
   const ex4: number = -3.1
   if (isNonNegativeInteger(ex4)) {
-    console.log(negate(ex4))
+    console.log(betterRepeat('hello', ex4))
   }
 }
 // nonNegativeIntegerExample()
