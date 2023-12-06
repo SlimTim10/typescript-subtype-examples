@@ -315,6 +315,37 @@ const wardrobeExample = () => {
 }
 // wardrobeExample()
 
+// A real-world kind of example.
+const productExample = () => {
+  type PositiveInteger = number & { readonly __type: unique symbol }
+
+  const isPositiveInteger = (x: number): x is PositiveInteger => {
+    return x >= 1 && Math.floor(x) === x
+  }
+
+  type NonEmptyString = string & { readonly __type: unique symbol }
+
+  const isNonEmptyString = (s: string): s is NonEmptyString => {
+    return s.trim().length > 0
+  }
+
+  type Product = {
+    name: NonEmptyString
+    description: string
+    priceCents: PositiveInteger
+  }
+
+  type Cart = {} // Use your imagination
+
+  const addToCart = (product: Product, quantity: PositiveInteger, cart: Cart): Cart => {
+    // Add a product to the cart, not having to worry about the quantity being a negative number or 0.
+    // ...
+    
+    return cart
+  }
+}
+// productExample()
+
 // Testing predicate functions.
 const testingPredicatesExample = () => {
   type ValidBirthYear = number & { readonly __type: unique symbol }
