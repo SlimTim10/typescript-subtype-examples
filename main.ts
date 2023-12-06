@@ -315,6 +315,22 @@ const wardrobeExample = () => {
 }
 // wardrobeExample()
 
+// Testing predicate functions.
+const testingPredicatesExample = () => {
+  type ValidBirthYear = number & { readonly __type: unique symbol }
+  const isValidBirthYear = (year: number): year is ValidBirthYear => {
+    const thisYear: number = new Date().getFullYear()
+    return year >= 1900 && year <= thisYear
+  }
+
+  console.log('Tests for ValidBirthYear:')
+  console.log(isValidBirthYear(1900))
+  console.log(!isValidBirthYear(1800))
+  console.log(isValidBirthYear(2023))
+  console.log(!isValidBirthYear(2100))
+}
+// testingPredicatesExample()
+
 // A subtype for pairs where the first number is divisible by the second number.
 // This is closer to dependent pairs.
 const divisibleExample = () => {
